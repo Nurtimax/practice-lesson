@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Card from "./compenents/card/Card";
+import CardLayout from "./compenents/card__layout/CardLayout";
+import Title from "./compenents/title/Title";
+import { users } from "./utils/data/data";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Title/>
+      <CardLayout>
+        {users.map((item) => (
+          <Card
+            key={item.id}
+            san={item.id}
+            name={item.username}
+            bgcolor={item.wallpaper}
+            userInfo={item.userInfo}
+            profilePic={item.profilePic}
+            social={item.social}
+          ></Card>
+        ))}
+      </CardLayout>
     </div>
   );
 }
